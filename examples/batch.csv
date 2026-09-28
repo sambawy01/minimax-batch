@@ -1,0 +1,4 @@
+name,prompt,first_frame,last_frame,model,resolution,duration,ratio,prompt_expansion
+Mountain Lake Dawn,"Mist drifting over a still mountain lake at dawn, a lone canoe gliding across, cinematic.",,,MiniMax-H3,768P,6,16:9,balanced
+city-crowd-vertical,"Top-down shot of a busy crosswalk, people crossing in all directions, golden hour.",,,,,5,9:16,
+sunrise-from-frames,"The sky warms from orange sunrise to a clear blue morning.",images/sunrise_start.png,images/sunrise_end.png,MiniMax-H3-Max,480P,5,,disabled

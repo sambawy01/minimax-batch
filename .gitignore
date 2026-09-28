@@ -1,0 +1,21 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# generated output / run state
+output/
+mcp-output/
+*.mp4
+**/manifest.json
+.minimax-batch.lock
+
+# python / tooling
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.DS_Store

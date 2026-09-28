@@ -1,0 +1,38 @@
+# minimax-batch example batch file.
+# Precedence (lowest -> highest): built-in defaults < `defaults:` below < CLI flags < per-job fields.
+# Relative image paths are resolved against this file's directory.
+
+defaults:
+  model: MiniMax-H3          # MiniMax-H3 (768P|2K, 4-15s) or MiniMax-H3-Max (480P|768P, 5-15s)
+  resolution: 768P
+  duration: 6
+  ratio: "16:9"              # quote ratios in YAML
+  prompt_expansion: balanced # disabled | balanced | quality (optional)
+
+jobs:
+  # Text-to-video: ratio must NOT be adaptive.
+  - name: Neon City Flyover
+    prompt: >-
+      A slow cinematic drone flyover of a rain-soaked neon city at night,
+      reflections shimmering on the wet streets, volumetric fog, 35mm film look.
+
+  # Per-job overrides.
+  - name: coffee-pour-vertical
+    prompt: Macro shot of espresso pouring into a white ceramic cup, steam rising, soft morning light.
+    ratio: "9:16"
+    duration: 5
+    prompt_expansion: disabled
+
+  # Image-to-video: first/last frames force ratio to `adaptive` automatically.
+  - name: sunrise-timelapse
+    prompt: A time-lapse of the sky transitioning from a warm sunrise to a clear blue morning.
+    first_frame: images/sunrise_start.png
+    last_frame: images/sunrise_end.png
+    model: MiniMax-H3-Max
+    resolution: 480P
+    duration: 5
+
+  # Remote images are passed through as URLs.
+  # - name: product-spin
+  #   prompt: The product slowly rotates on a turntable.
+  #   first_frame: https://example.com/product.jpg
