@@ -296,9 +296,13 @@ minimax-batch --version
   using `--retry-unknown`.
 - **`another minimax-batch run is using ...`:** another run holds the lock
   on that output directory. Wait for it, or use a different `--out`.
-- **Coding Plan keys (`sk-cp-...`):** it is **unverified** whether these
-  keys can use the video generation API. If you get `401`/`403`-style
-  errors with one, try a standard pay-as-you-go API key.
+- **Coding Plan keys (`sk-cp-...`):** these authenticate against the video
+  API, but in testing a create was refused with
+  `402 insufficient_balance_error: insufficient balance (1008)`: the Coding
+  Plan subscription does not appear to cover video generation. Nothing is
+  billed and the job is recorded as `not_submitted`. Top up pay-as-you-go
+  balance on the MiniMax platform (or use a standard API key), then re-run
+  the same command.
 
 ## Development
 
